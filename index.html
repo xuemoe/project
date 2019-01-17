@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="utf-8" />
+        <title>主页</title>
+        <link rel="stylesheet" href="css/waves.min.css" />
+        <script type="text/javascript" src="js/jquery.min.js"></script>
+        <script type="text/javascript" src="js/jquery.backstretch.min.js"></script>
+        <script type="text/javascript" src="js/waves.min.js"></script>
+        <style>
+            * {
+                padding: 0;
+                margin: 0;
+            }
+            
+            .middle {
+                width: 240px;
+                height: 300px;
+                position: absolute;
+                text-align: center;
+                z-index: 1000;
+            }
+            
+            .img_tx {
+                border: 5px solid #fff;
+                box-shadow: 2px 2px #000;
+                border-radius: 50%;
+            }
+            
+            @font-face {
+                font-family: 华康少女体;
+                src: url("华康少女体.ttf");
+            }
+            
+            .four {
+                margin-top: 20px;
+                font-size: 24px;
+                font-family: "华康少女体";
+                color: #FFFFFF;
+            }
+        </style>
+        <script>
+            /**开始就运行**/
+            $(document).ready(function() {
+                $(window).load(GaiBian());
+                function GaiBian() {
+                    var he = $(window).height();
+                    var wi = $(window).width();
+                    $('#two').css({
+                        "left": (wi - $('#two').width()) / 2 + 'px',
+                        "top": (he - $('#two').height()) / 2 - 60 + 'px'
+                    });
+                };
+                $(window).resize(function() {
+                    var he = $(window).height();
+                    var wi = $(window).width();
+                    $('#two').css({
+                        "left": (wi - $('#two').width()) / 2 + 'px',
+                        "top": (he - $('#two').height()) / 2 - 60 + 'px'
+                    });
+                });
+            });
+        </script>
+    </head>
+
+    <body id="body" ondragstart="return false;" oncontextmenu="return false;">
+        <div class="middle flat-box" id="two">
+            <img src="img/tx.jpg" width="200" height="200" class="img_tx" />
+            <p class="four">欢迎访问我的网站</p>
+            <p class="four">点击后进入</p>
+        </div>
+        <div class="backstretch flat-box">
+
+        </div>
+        <script type="text/javascript">
+            //设置点击效果
+            Waves.init();
+            Waves.attach('.flat-box', ['waves-block']);
+            //设置点击跳转效果
+            $('.backstretch,.middle').click(function() {
+                setTimeout(function() {
+                    open('http://blog.yukihd.com', '_self')
+                }, 400);
+            });
+            //设置背景
+            $('body').backstretch([
+                "img/bg_1.jpg",
+                "img/bg_2.jpg",
+                "img/bg_3.jpg",
+                "img/bg_4.jpg",
+            ], {
+                duration: 6000,
+                fade: 1000
+            })
+        </script>
+    </body>
+
+</html>
